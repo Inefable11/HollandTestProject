@@ -1,0 +1,7 @@
+.loading{
+    width: 256px; 
+    height: 256px; 
+    align-items: center; 
+    display: flex;
+    background-color: transparent;
+}

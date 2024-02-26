@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="_ResponseDTO\Dashboard\**" />
+    <EmbeddedResource Remove="_ResponseDTO\Dashboard\**" />
+    <EntityDeploy Remove="_ResponseDTO\Dashboard\**" />
+    <None Remove="_ResponseDTO\Dashboard\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Dapper.Contrib" Version="2.0.35" />
+  </ItemGroup>
+
+</Project>

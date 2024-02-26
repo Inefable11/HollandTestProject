@@ -1,0 +1,24 @@
+<div class="addContainer">
+    <div class="modalHeader" style="align-items: center;">     
+            <div>
+                    <h3 >{{data.carrera.name}}</h3>
+            </div>           
+            <div class="modalHeader clearfix">
+                <img [src]="urlFoto+data.carrera.img" alt="avatar" style="max-width: 550px; max-height: 550px;">  
+            </div> 
+    </div>
+    <div mat-dialog-content>
+        <div class="row">
+            <mat-label>  <strong>Perfil Laboral</strong>:</mat-label>
+            <p>
+                {{data.carrera.jobProfile}}
+            </p>
+        </div>
+        <div class="row">
+            <mat-label> <strong>Campo de trabajo:</strong></mat-label>
+            <p>
+                {{data.carrera.workField}}
+            </p>
+        </div>
+    </div>
+</div>

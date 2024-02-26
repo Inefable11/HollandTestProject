@@ -1,0 +1,118 @@
+{
+  "MENUITEMS": {
+    "MAIN": {
+      "TEXT": "-- Principal"
+    },
+    "HOME": {
+      "TEXT": "Inicio",
+      "LIST": {
+        "DASHBOARD1": "Dashboard",
+        "DASHBOARD2": "Tablero 2",
+        "TEACHER-DASHBOARD": "Panel del tutor",
+        "STUDENT-DASHBOARD": "Tablero del estudiante"
+      }
+    },
+    "TEACHERS": {
+      "TEXT": "Tutores",
+      "LIST": {
+        "ALL-TEACHERS": "Todos los tutores",
+        "ADD-TEACHER": "Agregar tutor",
+        "EDIT-TEACHER": "Tutor de edición",
+        "ABOUT-TEACHER": "Sobre el tutor"
+      }
+    },
+    "STUDENTS": {
+      "TEXT": "Estudiantes",
+      "LIST": {
+        "ALL-STUDENTS": "Todos los estudiantes",
+        "ADD-STUDENT": "Agregar estudiante",
+        "EDIT-STUDENT": "Editar alumno",
+        "ABOUT-STUDENT": "Sobre la estudiante"
+      }
+    },
+    "COURSES": {
+      "TEXT": "Tests Vocacionales",
+      "LIST": {
+        "ALL-COURSES": "Todos los tests",
+        "ADD-COURSE": "Agregar test",
+        "EDIT-COURSE": "Editar curso",
+        "ABOUT-COURSE": "Acerca del curso"
+      }
+    },
+    "LIBRARY": {
+      "TEXT": "Biblioteca",
+      "LIST": {
+        "ALL-LIBRARY": "Toda la biblioteca",
+        "ADD-LIBRARY": "Agregar biblioteca",
+        "EDIT-LIBRARY": "Editar biblioteca"
+      }
+    },
+    "DEPARTMENTS": {
+      "TEXT": "Aulas",
+      "LIST": {
+        "ALL-DEPARTMENT": "Todos los aulas",
+        "ADD-DEPARTMENT": "Agregar aula",
+        "EDIT-DEPARTMENT": "Editar departamento"
+      }
+    },
+    "STAFF": {
+      "TEXT": "Admin del sistema",
+      "LIST": {
+        "ALL-STAFF": "Todo los admin",
+        "ADD-STAFF": "Agregar admin",
+        "EDIT-STAFF": "Editar personal",
+        "ABOUT-STAFF": "Sobre el personal"
+      }
+    },
+    "HOLIDAY": {
+      "TEXT": "Fiesta",
+      "LIST": {
+        "ALL-HOLIDAY": "Todas las vacaciones",
+        "ADD-HOLIDAY": "Agregar feriado",
+        "EDIT-HOLIDAY": "Editar vacaciones"
+      }
+    },
+    "FEES": {
+      "TEXT": "Tarifa",
+      "LIST": {
+        "ALL-FEES": "Todas las tarifas",
+        "ADD-FEES": "Agregar tarifas",
+        "EDIT-FEES": "Editar tarifas",
+        "FEE-RECEIPT": "Recibo de tarifa"
+      }
+    },
+
+    "TEACHER": {    
+      "TEXT": "Tutor",
+      "LIST": {
+        "DASHBOARD": "Dashboard",
+        "LECTURES": "Revisar Test",
+        "LEAVE-REQUEST": "Dejar petición",
+        "EXAM-SCHEDULE": "Evaluación de Test",
+        "SETTINGS": "Configuraciones"
+      }
+    },
+    "STUDENT": {    
+      "TEXT": "Alumna",
+      "LIST": {
+        "DASHBOARD": "Dashboard",
+        "HOMEWORK": "Carreras e Instituciones",
+        "LEAVE-REQUEST": "Resultados del Test",
+        "TIME-TABLE": "Test Vocacional",
+        "SETTINGS": "Configuraciones"
+      }
+    },
+    "APPS": {
+      "TEXT": "-- Aplicaciones"
+    },
+    "CALENDAR": {
+      "TEXT": "Calendario"
+    },
+    "TASK": {
+      "TEXT": "Tarea"
+    },
+    "CONTACTS": {
+      "TEXT": "Contactos"
+    }
+  }
+}

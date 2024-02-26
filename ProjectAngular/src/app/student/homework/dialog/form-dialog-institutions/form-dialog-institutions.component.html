@@ -1,0 +1,37 @@
+<div class="addContainer">
+    <div class="modalHeader" style="align-items: center;">     
+            <div>
+                    <h3 >{{data.institution.name}}</h3>
+                    
+            </div>           
+            <div class="modalHeader clearfix">
+                <img [src]="urlFoto+data.institution.img" alt="avatar" style="max-width: 100px; max-height: 100px;">  
+            </div> 
+    </div>
+    <div mat-dialog-content>
+        <div class="row">
+            <mat-label>  <strong>Carreras:</strong>:</mat-label>
+            <p>
+                {{data.institution.studyCareers}}
+            </p>
+        </div>
+        <div class="row">
+            <mat-label> <strong>Descripción:</strong></mat-label>
+            <p>
+                {{data.institution.description}}
+            </p>
+            <p>
+                {{data.institution.details}}
+            </p>
+            <a href={{data.institution.url}} target="_blank">Visitar la web de la insitución</a>
+        </div>
+        
+            <div class="modalHeader clearfix" style="display: flex; justify-content: center;">
+                <img [src]="urlFoto+data.institution.img.split('.')[0]+'-'+data.institution.id+'.'+data.institution.img.split('.')[1]" alt="avatar" style="max-width: 450px; max-height: 450px;">   
+                
+            </div>
+                   
+            
+        
+    </div>
+</div>

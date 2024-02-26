@@ -1,0 +1,129 @@
+<section class="content">
+  <div class="container-fluid">
+    <div class="block-header">
+      <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+          <ul class="breadcrumb breadcrumb-style ">
+            <li class="breadcrumb-item">
+              <h4 class="page-title">Tests</h4>
+            </li>
+            <li class="breadcrumb-item bcrumb-1">
+              <a routerLink="/admin/dashboard/main">
+                <i class="fas fa-home"></i> Inicio</a>
+            </li>
+            <li class="breadcrumb-item bcrumb-2">
+              <a href="#" onClick="return false;">Test</a>
+            </li>
+            <li class="breadcrumb-item active">Todos</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <form class="register-form m-4" [formGroup]="proForm" (ngSubmit)="submit">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="card">
+            <div class="body">
+              <div class="table-responsive">
+                <div class="materialTableHeader">
+                  <div class="row">
+                    <div class="col-4">
+                      <ul class="header-buttons-left ml-0">
+                        <li class="dropdown">
+                          <h2>
+                            <strong>Nombre</strong></h2>
+                        </li>
+                        <li class="dropdown m-l-20">                          
+                          <input placeholder="Escriba Nombre" type="text" #filter class="browser-default search-field"
+                            aria-label="Search box" formControlName="textSearch">
+                        </li>  
+                      </ul>
+                      </div>  
+                      <div class="col-6" hidden>
+                        <ul class="header-buttons-left ml-0">
+                        <li class="dropdown">
+                          <h2>
+                            <strong>  Rango de fecha</strong></h2>
+                        </li>
+                        <li class="dropdown m-l-20">                                         
+                          <mat-form-field >
+                            <mat-label>Inicio</mat-label>
+                            <input matInput [matDatepicker]="ipicker" formControlName="idate" >
+                            <mat-datepicker-toggle matSuffix [for]="ipicker"></mat-datepicker-toggle>
+                            <mat-datepicker #ipicker></mat-datepicker>                          
+                          </mat-form-field>
+                        </li>          
+                        <li class="dropdown m-l-20">                                         
+                          <mat-form-field >
+                            <mat-label>Fin</mat-label>
+                            <input matInput [matDatepicker]="fpicker" formControlName="fdate" >
+                            <mat-datepicker-toggle matSuffix [for]="fpicker"></mat-datepicker-toggle>
+                            <mat-datepicker #fpicker></mat-datepicker>                          
+                          </mat-form-field>
+                        </li>                 
+                      </ul>
+                      </div>
+                      <div class="col-2" hidden>
+                        <ul class="header-buttons">                      
+                          <li>
+                            <div class="icon-button-demo">
+                              <button mat-mini-fab color="primary" (click)="refresh()">
+                                <mat-icon class="col-white">search
+                                </mat-icon>
+                              </button>
+                            </div>
+                          </li>
+                        </ul>
+                      </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-12">
+          <div class="card">
+            <div class="header">
+              <h2>Todos los tests</h2>
+            </div>
+            <div class="body" >
+              <div class="row">
+                <div class="col-md-3" *ngFor="let test of response">
+                  <div class="course-card">
+                    <div class="course-card-body"  >
+                      <!-- <div class="course-card-top-overflow text-white">
+                        <img src="assets/images/banner/course1.png">
+                      </div> -->
+                      <br>
+                      <div class="post-user mt-3">
+                        <span class="float-start msr-3">
+                          <img class="img-circle" [src]="urlFoto+test.img" alt="..." style="max-width: 50px; max-height: 50px;">
+                        </span>
+                        <h6 class="mb-xs mt-xs"> {{test.name}} </h6>
+                        <p class="text-muted"><time>{{test.timeElapsed}} min.</time></p>
+                      </div>
+                      <h6>Personalidad: {{test.personality}}</h6>
+                      <p>{{test.personalityVocations}} </p>
+                      <div class="text-center mb-3">
+                        <button mat-raised-button color="primary" (click)="showTest(test)">Detalle del test</button>
+                      </div>
+                    </div>
+                    <br>
+                    <!-- <footer class="bg-body-light">
+                      <ul class="post-links no-separator">
+                        <li><a href="#"><span class="text-danger"><i class="fa fa-heart"></i>
+                              368</span></a></li>
+                        <li><a href="#"><i class="far fa-comment-dots"></i> 48</a></li>
+                      </ul>
+                    </footer> -->
+                  </div>
+                </div>              
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+    
+  </div>
+</section>

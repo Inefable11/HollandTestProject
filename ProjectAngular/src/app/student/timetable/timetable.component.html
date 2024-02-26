@@ -1,0 +1,1447 @@
+<section class="content" style="background: url({{image}}) no-repeat center center fixed; 
+                                  -webkit-background-size: cover;
+                                  -moz-background-size: cover;
+                                  -o-background-size: cover;
+                                  background-size: cover;">
+  <div class="container-fluid" >
+    <div class="block-header">
+      <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+          <ul class="breadcrumb breadcrumb-style ">
+            <li class="breadcrumb-item">
+              <h4 class="page-title" >Test Vocacional</h4>
+            </li>
+            <li class="breadcrumb-item bcrumb-1">
+              <a routerLink="/admin/dashboard/main">
+                <i class="fas fa-home" ></i> Inicio</a>
+            </li>
+            <li class="breadcrumb-item active" >Realizar Test</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="row clearfix" >
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="card" style="background-color: transparent;">
+          <div [hidden]="boolArray[0].prop">
+            <div class="header" style="background-color: rgb(15, 12, 12,0.6); border-top-left-radius: 20px; border-top-right-radius: 20px;">
+              <div class="col-12 row align-items-center">
+                  <h2 > <strong>TEST DE HOLLAND</strong></h2>
+              </div>   
+            </div>  
+              <div class="body" style="background-color: rgb(15, 12, 12,0.6); border-bottom-left-radius: 20px; border-bottom-right-radius: 20px;">
+                <div class="row align-items-center"  >
+                  <div class="col-md-6 row align-items-center">
+                    <img src="assets/images/banner/VC-psicologia-asesor.png" style="height: 240px;width: 240px; align-items: center;" alt="">
+                    <h4 class="title p-t-15">
+                      El Test de Holland:
+                    </h4>
+                    <p >
+                      John Holland, profesor emérito de la Universidad Johns Hopkins, <br> es un psicólogo que dedicó su vida profesional a investigar <br>temas relacionados con la elección de carrera y la satisfacción.                      
+                    </p>
+                  </div>
+                  <div class="col-md-6 row align-items-center" >
+                    <img src="assets/images/banner/recommendations.png" style="height: 250px;width: 250px;" alt="">
+                    <h4 class="title p-t-15" >
+                      Recomendaciones:
+                    </h4>
+                    <p>
+                      Marque todas las declaraciones que lo describan la mayor parte del tiempo. <br>Puede marcar una o varias opciones, solo aquellas que describan su personalidad.<br> El test tiene una duración de 45 minutos, tiempo en el que se culminará automáticamente.
+                    </p>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
+                    <div class="card" style="background-color: transparent;">
+                      <div class="header" >
+                        <h2 >Elija su imagen de fondo</h2>
+                      </div>
+                      <div class="body" >                  
+                        <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group" 
+                          [(ngModel)]="favoriteSeason" >
+                          <mat-radio-button class="example-radio-button ms-0" *ngFor="let season of seasons" [value]="season" (click)="chageImage(season)">
+                          {{season}}
+                          </mat-radio-button>
+                        </mat-radio-group>
+                        <!-- <div >Tu imagen de fondo es: {{favoriteSeason}}</div> -->
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
+                    <div class="card" style="background-color: transparent;">
+                      <div class="header" >
+                        <h2 >Elija una música</h2>
+                        <br>
+                      </div>
+                      
+                      <div *ngFor="let music of audios">   
+                        <div >{{music.name}}</div>
+                        <audio controls src='{{music.audio}}' type="audio/mp3" loop >                    
+                        </audio>                   
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="header">                        
+                  <div class="icon-button-demo col-12 row align-items-center" >
+                    <button mat-stroked-button color="primary" (click)="startTest(true, 'showTimer')">
+                      Iniciar Test
+                    </button>              
+                  </div> 
+                </div> 
+              </div>
+            </div>
+          
+          
+          <!-- <div class="section" *ngIf="showTimer">
+            <div class="coming-soon">
+                <div class="time-countdown">
+                    <ul>
+                         <li class="count-bg-one radius"><span id="days">{{day}}</span>Dias</li>
+                        <li class="count-bg-two radius"><span id="hours">{{hours}}</span>Horas</li> 
+                        <li class="count-bg-three radius"><span id="minutes">{{minutes}}</span>Minutos</li>
+                        <li class="count-bg-four radius"><span id="seconds">{{seconds}}</span>Segundos</li>
+                    </ul>
+                </div>
+            </div> -->
+        
+          
+        <div class="body" *ngIf="boolArray[0].prop"  style="background-color: transparent;">
+          <form class="register-form m-4" [formGroup]="formTabla" (ngSubmit)="submitForm(formTabla1, formTabla2, formTabla3, formTabla4, formTabla5, formTabla6)">
+           <br>
+           <br>
+           <br>
+           <br>
+           <br>
+           <h2>{{tetxHeader}}  Puede elegir una, varias o ninguna de las opciones.</h2>
+           <!-- /*Tabla 1*/ -->
+           <form class="register-form m-4" [formGroup]="formTabla1">
+              <div class="row slideDown" [hidden]="boolArray[1].prop">
+                <div class="col-md-4">
+                <br>
+                <div class="card border-apply">
+                  <div class="m-b-20">
+                    <div class="contact-grid">
+                      <div class="profile-header l-bg-purple-dark">
+                        
+                      </div>
+                      <img src="assets/images/user/Trabajo-Ideal.jpg" class="user-img" alt="">
+                      <p>
+                        Prefiero seguir en el mismo trabajo durante mucho tiempo
+                      </p>
+                      
+                      <div class="profile-userbuttons">
+                        <mat-checkbox class="example-margin" formControlName="table1Preg1" [(ngModel)]="table1Preg1"></mat-checkbox>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                </div>
+                <div class="col-md-4">
+                <br>
+                <div class="card border-apply">
+                  <div class="m-b-20">
+                    <div class="contact-grid">
+                      <div class="profile-header bg-cyan">
+                      
+                      </div>
+                      <img src="assets/images/user/megustaNumeros.jpg" class="user-img" alt="">
+                      <p>
+                        Me gustan los trabajos con números
+                      </p>
+                      
+                      <div class="profile-userbuttons">
+                        <mat-checkbox class="example-margin" formControlName="table1Preg2" [(ngModel)]="table1Preg2"></mat-checkbox>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                </div>
+                <div class="col-md-4">
+                <br>
+                <div class="card border-apply">
+                  <div class="m-b-20">
+                    <div class="contact-grid">
+                      <div class="profile-header bg-dark">
+                    
+                      </div>
+                      <img src="assets/images/user/trabajo paso a paso.jpg" class="user-img" alt="">
+                      <p>
+                        Prefiero llevar a cabo los proyectos con cuidado, haciéndolos paso a paso.
+                      </p>
+                      
+                      <div class="profile-userbuttons">
+                        <mat-checkbox class="example-margin" formControlName="table1Preg3" [(ngModel)]="table1Preg3"></mat-checkbox>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                </div>
+
+                <div class="col-md-12">
+                <div class="profile-userbuttons">
+                  <button mat-flat-button color="primary" type="button" (click)="Next('boolTable1_2')">Siguiente</button>
+                </div>
+                </div>
+              </div>
+              <div class="row slideUp" [hidden]="boolArray[2].prop">
+                <div class="col-md-4">
+                <br>
+                <div class="card border-apply">
+                  <div class="m-b-20">
+                    <div class="contact-grid">
+                      <div class="profile-header l-bg-orange">
+                        
+                      </div>
+                      <img src="assets/images/user/espera_que_se_haga.jpg" class="user-img" alt="">
+                      <p>
+                        Prefiero los trabajos en los que sé de antemano qué se espera que haga.
+                      </p>
+                      
+                      <div class="profile-userbuttons">
+                        <mat-checkbox class="example-margin" formControlName="table1Preg4" [(ngModel)]="table1Preg4"></mat-checkbox>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                </div>
+                <div class="col-md-4">
+                <br>
+                <div class="card border-apply">
+                  <div class="m-b-20">
+                    <div class="contact-grid">
+                      <div class="profile-header bg-green">
+                      
+                      </div>
+                      <img src="assets/images/user/reglas_claras.jpg" class="user-img" alt="">
+                      <p>
+                        Prefiero reglas e instrucciones claras y específicas de trabajo.
+                      </p>
+                      
+                      <div class="profile-userbuttons">
+                        <mat-checkbox class="example-margin" formControlName="table1Preg5" [(ngModel)]="table1Preg5"></mat-checkbox>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                </div>
+                <div class="col-md-4">
+                <br>
+                <div class="card border-apply">
+                  <div class="m-b-20">
+                    <div class="contact-grid">
+                      <div class="profile-header bg-red">
+                    
+                      </div>
+                      <img src="assets/images/user/prestar_atencion.jpg" class="user-img" alt="">
+                      <p>
+                        Me gusta prestar atención a los detalles.
+                      </p>
+                      
+                      <div class="profile-userbuttons">
+                        <mat-checkbox class="example-margin" formControlName="table1Preg6" [(ngModel)]="table1Preg6"></mat-checkbox>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                </div>
+                <div class="col-md-6">
+                <div class="profile-userbuttons">
+                  <button mat-flat-button color="accent"  type="button" (click)="Next('boolTable1_1')">Atras</button>
+                </div>
+                </div>
+                <div class="col-md-6">
+                <div class="profile-userbuttons">
+                  <button mat-flat-button color="primary"  type="button" (click)="Next('boolTable1_3')">Siguiente</button>
+                </div>
+                </div>
+              </div>
+              <div class="row slideLeft" [hidden]="boolArray[3].prop">
+                <div class="col-md-4">
+                <br>
+                <div class="card border-apply">
+                  <div class="m-b-20">
+                    <div class="contact-grid">
+                      <div class="profile-header bg-indigo">
+                        
+                      </div>
+                      <img src="assets/images/user/sin-discutirlas.jpg" class="user-img" alt="">
+                      <p>
+                        Puedo aceptar instrucciones de otros sin discutirlas.
+                      </p>
+                      
+                      <div class="profile-userbuttons">
+                        <mat-checkbox class="example-margin" formControlName="table1Preg7" [(ngModel)]="table1Preg7"></mat-checkbox>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                </div>
+                <div class="col-md-4">
+                <br>
+                <div class="card border-apply">
+                  <div class="m-b-20">
+                    <div class="contact-grid">
+                      <div class="profile-header l-bg-purple-dark">
+                      
+                      </div>
+                      <img src="assets/images/user/terminar_tareas.jpg" class="user-img" alt="">
+                      <p>
+                        Me gusta estar seguro de terminar las tareas que se me asignan.
+                      </p>
+                      
+                      <div class="profile-userbuttons">
+                        <mat-checkbox class="example-margin" formControlName="table1Preg8" [(ngModel)]="table1Preg8"></mat-checkbox>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                </div>
+                <div class="col-md-4">
+                <br>
+                <div class="card border-apply">
+                  <div class="m-b-20">
+                    <div class="contact-grid">
+                      <div class="profile-header bg-cyan">
+                    
+                      </div>
+                      <img src="assets/images/user/organizar_trabajo.jpg" class="user-img" alt="">
+                      <p>
+                        Me gusta organizar el lugar de trabajo antes de comenzar con las tareas en sí.
+                      </p>
+                      
+                      <div class="profile-userbuttons">
+                        <mat-checkbox class="example-margin" formControlName="table1Preg9" [(ngModel)]="table1Preg9"></mat-checkbox>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                </div>
+                <div class="col-md-6">
+                <div class="profile-userbuttons">
+                  <button mat-flat-button color="accent"  type="button" (click)="Next('boolTable1_2')">Atras</button>
+                </div>
+                </div>
+                <div class="col-md-6">
+                <div class="profile-userbuttons">
+                  <button mat-flat-button color="primary"  type="button" (click)="Next('boolTable1_4')">Siguiente</button>
+                </div>
+                </div>
+              </div>
+           </form>
+            
+              <!-- /*Tabla 2*/ -->
+            <form class="register-form m-4" [formGroup]="formTabla2">
+              <div class="row slideDown" [hidden]="boolArray[4].prop">
+                <div class="col-md-4">
+                <br>
+                <div class="card border-apply">
+                  <div class="m-b-20">
+                    <div class="contact-grid">
+                      <div class="profile-header l-bg-purple-dark">
+                        
+                      </div>
+                      <img src="assets/images/user/reparaciones-electronicas.jpg" class="user-img" alt="">
+                      <p>
+                        Me gusta instalar y reparar aparatos..
+                      </p>
+                      
+                      <div class="profile-userbuttons">
+                        <mat-checkbox class="example-margin" formControlName="table2Preg1" [(ngModel)]="table2Preg1"></mat-checkbox>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                </div>
+                <div class="col-md-4">
+                <br>
+                <div class="card border-apply">
+                  <div class="m-b-20">
+                    <div class="contact-grid">
+                      <div class="profile-header bg-cyan">
+                      
+                      </div>
+                      <img src="assets/images/user/muebles-trabajador.jpg" class="user-img" alt="">
+                      <p>
+                        Disfruto al trabajar la madera manualmente, como para hacer muebles para el hogar y juegos de madera.
+                      </p>
+                      
+                      <div class="profile-userbuttons">
+                        <mat-checkbox class="example-margin" formControlName="table2Preg2" [(ngModel)]="table2Preg2"></mat-checkbox>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                </div>
+                <div class="col-md-4">
+                <br>
+                <div class="card border-apply">
+                  <div class="m-b-20">
+                    <div class="contact-grid">
+                      <div class="profile-header bg-dark">
+                    
+                      </div>
+                      <img src="assets/images/user/neumatico-coche.jpg" class="user-img" alt="">
+                      <p>
+                        Me gusta un ambiente laboral que me permita resolver problemas mecánicos como reparar vehículos y llevar el mantenimiento de los equipos de aire acondicionado.
+                      </p>
+                      
+                      <div class="profile-userbuttons">
+                        <mat-checkbox class="example-margin" formControlName="table2Preg3" [(ngModel)]="table2Preg3"></mat-checkbox>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                </div>
+
+                <div class="col-md-6">
+                <div class="profile-userbuttons">
+                  <button mat-flat-button color="accent"  type="button" (click)="Next('boolTable1_3')">Atras</button>
+                </div>
+                </div>
+                <div class="col-md-6">
+                <div class="profile-userbuttons">
+                  <button mat-flat-button color="primary"  type="button" (click)="Next('boolTable1_5')">Siguiente</button>
+                </div>
+                </div>
+              </div>
+              <div class="row slideUp" [hidden]="boolArray[5].prop">
+                <div class="col-md-4">
+                <br>
+                <div class="card border-apply">
+                  <div class="m-b-20">
+                    <div class="contact-grid">
+                      <div class="profile-header l-bg-orange">
+                        
+                      </div>
+                      <img src="assets/images/user/outdoor-activity.jpg" class="user-img" alt="">
+                      <p>
+                        Prefiero trabajar al aire libre en lugar de en una oficina
+                      </p>
+                      
+                      <div class="profile-userbuttons">
+                        <mat-checkbox class="example-margin" formControlName="table2Preg4" [(ngModel)]="table2Preg4"></mat-checkbox>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                </div>
+                <div class="col-md-4">
+                <br>
+                <div class="card border-apply">
+                  <div class="m-b-20">
+                    <div class="contact-grid">
+                      <div class="profile-header bg-green">
+                      
+                      </div>
+                      <img src="assets/images/user/granjero-que-trabaja.jpg" class="user-img" alt="">
+                      <p>
+                        Me gusta el trabajo en el campo que exige esfuerzo físico.
+                      </p>
+                      
+                      <div class="profile-userbuttons">
+                        <mat-checkbox class="example-margin" formControlName="table2Preg5" [(ngModel)]="table2Preg5"></mat-checkbox>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                </div>
+                <div class="col-md-4">
+                <br>
+                <div class="card border-apply">
+                  <div class="m-b-20">
+                    <div class="contact-grid">
+                      <div class="profile-header bg-red">
+                    
+                      </div>
+                      <img src="assets/images/user/armar-juguetes.jpg" class="user-img" alt="">
+                      <p>
+                        Me gusta armar juguetes a escala.
+                      </p>
+                      
+                      <div class="profile-userbuttons">
+                        <mat-checkbox class="example-margin" formControlName="table2Preg6" [(ngModel)]="table2Preg6"></mat-checkbox>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                </div>
+                <div class="col-md-6">
+                <div class="profile-userbuttons">
+                  <button mat-flat-button color="accent"  type="button" (click)="Next('boolTable1_4')">Atras</button>
+                </div>
+                </div>
+                <div class="col-md-6">
+                <div class="profile-userbuttons">
+                  <button mat-flat-button color="primary"  type="button" (click)="Next('boolTable1_6')">Siguiente</button>
+                </div>
+                </div>
+              </div>
+              <div class="row slideLeft" [hidden]="boolArray[6].prop">
+                <div class="col-md-4">
+                <br>
+                <div class="card border-apply">
+                  <div class="m-b-20">
+                    <div class="contact-grid">
+                      <div class="profile-header bg-indigo">
+                        
+                      </div>
+                      <img src="assets/images/user/paisajes-naturales.jpg" class="user-img" alt="">
+                      <p>
+                        Me gustan los paisajes naturales.
+                      </p>
+                      
+                      <div class="profile-userbuttons">
+                        <mat-checkbox class="example-margin" formControlName="table2Preg7" [(ngModel)]="table2Preg7"></mat-checkbox>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                </div>
+                <div class="col-md-4">
+                <br>
+                <div class="card border-apply">
+                  <div class="m-b-20">
+                    <div class="contact-grid">
+                      <div class="profile-header l-bg-purple-dark">
+                      
+                      </div>
+                      <img src="assets/images/user/sport-collage.jpg" class="user-img" alt="">
+                      <p>
+                        Me gustan los deportes.
+                      </p>
+                      
+                      <div class="profile-userbuttons">
+                        <mat-checkbox class="example-margin" formControlName="table2Preg8" [(ngModel)]="table2Preg8"></mat-checkbox>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                </div>
+                <div class="col-md-4">
+                <br>
+                <div class="card border-apply">
+                  <div class="m-b-20">
+                    <div class="contact-grid">
+                      <div class="profile-header bg-cyan">
+                    
+                      </div>
+                      <img src="assets/images/user/una-joya.jpg" class="user-img" alt="">
+                      <p>
+                        Me gusta fabricar puñales y alhajas de plata.
+                      </p>
+                      
+                      <div class="profile-userbuttons">
+                        <mat-checkbox class="example-margin" formControlName="table2Preg9" [(ngModel)]="table2Preg9"></mat-checkbox>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                </div>
+                <div class="col-md-6">
+                <div class="profile-userbuttons">
+                  <button mat-flat-button color="accent"  type="button" (click)="Next('boolTable1_5')">Atras</button>
+                </div>
+                </div>
+                <div class="col-md-6">
+                <div class="profile-userbuttons">
+                  <button mat-flat-button color="primary"  type="button" (click)="Next('boolTable1_7')">Siguiente</button>
+                </div>
+                </div>
+              </div> 
+            </form>
+
+              <!-- /*Tabla 3*/ -->
+            <form class="register-form m-4" [formGroup]="formTabla3">
+              <div class="row slideDown" [hidden]="boolArray[7].prop">
+                <div class="col-md-4">
+                <br>
+                <div class="card border-apply">
+                  <div class="m-b-20">
+                    <div class="contact-grid">
+                      <div class="profile-header l-bg-purple-dark">
+                        
+                      </div>
+                      <img src="assets/images/user/lectores-libros-electronicos.jpg" class="user-img" alt="">
+                      <p>
+                        Me gusta leer libros y periódicos científicos.
+                      </p>
+                      
+                      <div class="profile-userbuttons">
+                        <mat-checkbox class="example-margin" formControlName="table3Preg1" [(ngModel)]="table3Preg1"></mat-checkbox>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                </div>
+                <div class="col-md-4">
+                <br>
+                <div class="card border-apply">
+                  <div class="m-b-20">
+                    <div class="contact-grid">
+                      <div class="profile-header bg-cyan">
+                      
+                      </div>
+                      <img src="assets/images/user/soluciones-a-los-problemas.jpg" class="user-img" alt="">
+                      <p>
+                        Me gusta pensar a fondo las soluciones a los problemas.
+                      </p>
+                      
+                      <div class="profile-userbuttons">
+                        <mat-checkbox class="example-margin" formControlName="table3Preg2" [(ngModel)]="table3Preg2"></mat-checkbox>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                </div>
+                <div class="col-md-4">
+                <br>
+                <div class="card border-apply">
+                  <div class="m-b-20">
+                    <div class="contact-grid">
+                      <div class="profile-header bg-dark">
+                    
+                      </div>
+                      <img src="assets/images/user/proyecto-ideas.jpg" class="user-img" alt="">
+                      <p>
+                        Me gusta llevar a cabo proyectos en función de mis propias ideas.
+                      </p>
+                      
+                      <div class="profile-userbuttons">
+                        <mat-checkbox class="example-margin" formControlName="table3Preg3" [(ngModel)]="table3Preg3"></mat-checkbox>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                </div>
+                <div class="col-md-6">
+                <div class="profile-userbuttons">
+                  <button mat-flat-button color="accent"  type="button" (click)="Next('boolTable1_6')">Atras</button>
+                </div>
+                </div>
+                <div class="col-md-6">
+                <div class="profile-userbuttons">
+                  <button mat-flat-button color="primary"  type="button" (click)="Next('boolTable1_8')">Siguiente</button>
+                </div>
+                </div>
+              </div>
+              <div class="row slideUp" [hidden]="boolArray[8].prop">
+                <div class="col-md-4">
+                <br>
+                <div class="card border-apply">
+                  <div class="m-b-20">
+                    <div class="contact-grid">
+                      <div class="profile-header l-bg-orange">
+                        
+                      </div>
+                      <img src="assets/images/user/me-gusta-laboratorio.jpg" class="user-img" alt="">
+                      <p>
+                        Me gusta hacer pruebas de laboratorio.
+                      </p>
+                      
+                      <div class="profile-userbuttons">
+                        <mat-checkbox class="example-margin" formControlName="table3Preg4" [(ngModel)]="table3Preg4"></mat-checkbox>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                </div>
+                <div class="col-md-4">
+                <br>
+                <div class="card border-apply">
+                  <div class="m-b-20">
+                    <div class="contact-grid">
+                      <div class="profile-header bg-green">
+                      
+                      </div>
+                      <img src="assets/images/user/proyecto-nuevas-ideas.jpg" class="user-img" alt="">
+                      <p>
+                        Me gusta trabajar en proyectos que me darán nuevas ideas.
+                      </p>
+                      
+                      <div class="profile-userbuttons">
+                        <mat-checkbox class="example-margin" formControlName="table3Preg5" [(ngModel)]="table3Preg5"></mat-checkbox>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                </div>
+                <div class="col-md-4">
+                <br>
+                <div class="card border-apply">
+                  <div class="m-b-20">
+                    <div class="contact-grid">
+                      <div class="profile-header bg-red">
+                    
+                      </div>
+                      <img src="assets/images/user/01matematicas-2.jpg" class="user-img" alt="">
+                      <p>
+                        Me gusta el tipo de trabajo donde puedo hacer cálculos matemáticos.
+                      </p>
+                      
+                      <div class="profile-userbuttons">
+                        <mat-checkbox class="example-margin" formControlName="table3Preg6" [(ngModel)]="table3Preg6"></mat-checkbox>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                </div>
+                <div class="col-md-6">
+                <div class="profile-userbuttons">
+                  <button mat-flat-button color="accent"  type="button" (click)="Next('boolTable1_7')">Atras</button>
+                </div>
+                </div>
+                <div class="col-md-6">
+                <div class="profile-userbuttons">
+                  <button mat-flat-button color="primary"  type="button" (click)="Next('boolTable1_9')">Siguiente</button>
+                </div>
+                </div>
+              </div>
+              <div class="row slideLeft" [hidden]="boolArray[9].prop">
+                <div class="col-md-4">
+                <br>
+                <div class="card border-apply">
+                  <div class="m-b-20">
+                    <div class="contact-grid">
+                      <div class="profile-header bg-indigo">
+                        
+                      </div>
+                      <img src="assets/images/user/explorar-monumentos.jpg" class="user-img" alt="">
+                      <p>
+                        Disfruto al estudiar y explorar monumentos.
+                      </p>
+                      
+                      <div class="profile-userbuttons">
+                        <mat-checkbox class="example-margin" formControlName="table3Preg7" [(ngModel)]="table3Preg7"></mat-checkbox>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                </div>
+                <div class="col-md-4">
+                <br>
+                <div class="card border-apply">
+                  <div class="m-b-20">
+                    <div class="contact-grid">
+                      <div class="profile-header l-bg-purple-dark">
+                      
+                      </div>
+                      <img src="assets/images/user/hacer-investigaciones.jpg" class="user-img" alt="">
+                      <p>
+                        Disfruto al hacer investigaciones científicas.
+                      </p>
+                      
+                      <div class="profile-userbuttons">
+                        <mat-checkbox class="example-margin" formControlName="table3Preg8" [(ngModel)]="table3Preg8"></mat-checkbox>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                </div>
+                <div class="col-md-4">
+                <br>
+                <div class="card border-apply">
+                  <div class="m-b-20">
+                    <div class="contact-grid">
+                      <div class="profile-header bg-cyan">
+                    
+                      </div>
+                      <img src="assets/images/user/medio-ambiente.jpg" class="user-img" alt="">
+                      <p>
+                        Me gusta estudiar temas específicos de protección ambiental.
+                      </p>
+                      
+                      <div class="profile-userbuttons">
+                        <mat-checkbox class="example-margin" formControlName="table3Preg9" [(ngModel)]="table3Preg9"></mat-checkbox>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                </div>
+                <div class="col-md-6">
+                <div class="profile-userbuttons">
+                  <button mat-flat-button color="accent"  type="button" (click)="Next('boolTable1_8')">Atras</button>
+                </div>
+                </div>
+                <div class="col-md-6">
+                <div class="profile-userbuttons">
+                  <button mat-flat-button color="primary"  type="button" (click)="Next('boolTable1_10')">Siguiente</button>
+                </div>
+                </div>
+              </div>
+            </form>
+
+              <!-- /*Tabla 4*/ -->
+            <form class="register-form m-4" [formGroup]="formTabla4">
+              <div class="row slideDown" [hidden]="boolArray[10].prop">
+                <div class="col-md-4">
+                <br>
+                <div class="card border-apply">
+                  <div class="m-b-20">
+                    <div class="contact-grid">
+                      <div class="profile-header l-bg-purple-dark">
+                        
+                      </div>
+                      <img src="assets/images/user/dirigir-profesional.jpg" class="user-img" alt="">
+                      <p>
+                        Disfruto al dirigir a los demás en sus actividades.
+                      </p>
+                      
+                      <div class="profile-userbuttons">
+                        <mat-checkbox class="example-margin" formControlName="table4Preg1" [(ngModel)]="table4Preg1"></mat-checkbox>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                </div>
+                <div class="col-md-4">
+                <br>
+                <div class="card border-apply">
+                  <div class="m-b-20">
+                    <div class="contact-grid">
+                      <div class="profile-header bg-cyan">
+                      
+                      </div>
+                      <img src="assets/images/user/planificar-trabajo.jpg" class="user-img" alt="">
+                      <p>
+                        Prefiero las tareas donde puedo planificar y organizar el trabajo de los demás.
+                      </p>
+                      
+                      <div class="profile-userbuttons">
+                        <mat-checkbox class="example-margin" formControlName="table4Preg2" [(ngModel)]="table4Preg2"></mat-checkbox>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                </div>
+                <div class="col-md-4">
+                <br>
+                <div class="card border-apply">
+                  <div class="m-b-20">
+                    <div class="contact-grid">
+                      <div class="profile-header bg-dark">
+                    
+                      </div>
+                      <img src="assets/images/user/planificación-de-actividades.jpg" class="user-img" alt="">
+                      <p>
+                        Me gusta ser el responsable de la planificación de actividades y eventos.
+                      </p>
+                      
+                      <div class="profile-userbuttons">
+                        <mat-checkbox class="example-margin" formControlName="table4Preg3" [(ngModel)]="table4Preg3"></mat-checkbox>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                </div>
+
+                <div class="col-md-6">
+                <div class="profile-userbuttons">
+                  <button mat-flat-button color="accent"  type="button" (click)="Next('boolTable1_9')">Atras</button>
+                </div>
+                </div>
+                <div class="col-md-6">
+                <div class="profile-userbuttons">
+                  <button mat-flat-button color="primary"  type="button" (click)="Next('boolTable1_11')">Siguiente</button>
+                </div>
+                </div>
+              </div>
+              <div class="row slideUp" [hidden]="boolArray[11].prop">
+                <div class="col-md-4">
+                <br>
+                <div class="card border-apply">
+                  <div class="m-b-20">
+                    <div class="contact-grid">
+                      <div class="profile-header l-bg-orange">
+                        
+                      </div>
+                      <img src="assets/images/user/supervisar-equipos.jpg" class="user-img" alt="">
+                      <p>
+                        Disfruto al supervisar equipos de trabajo. 
+                      </p>
+                      
+                      <div class="profile-userbuttons">
+                        <mat-checkbox class="example-margin" formControlName="table4Preg4" [(ngModel)]="table4Preg4"></mat-checkbox>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                </div>
+                <div class="col-md-4">
+                <br>
+                <div class="card border-apply">
+                  <div class="m-b-20">
+                    <div class="contact-grid">
+                      <div class="profile-header bg-green">
+                      
+                      </div>
+                      <img src="assets/images/user/ideas-innovadoras.jpg" class="user-img" alt="">
+                      <p>
+                        Prefiero el tipo de trabajo que me permite presentar ideas o puntos de vista particulares.
+                      </p>
+                      
+                      <div class="profile-userbuttons">
+                        <mat-checkbox class="example-margin" formControlName="table4Preg5" [(ngModel)]="table4Preg5"></mat-checkbox>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                </div>
+                <div class="col-md-4">
+                <br>
+                <div class="card border-apply">
+                  <div class="m-b-20">
+                    <div class="contact-grid">
+                      <div class="profile-header bg-red">
+                    
+                      </div>
+                      <img src="assets/images/user/convencer-a-los-demas.jpg" class="user-img" alt="">
+                      <p>
+                        Soy capaz de convencer a los demás de mis puntos de vista. 
+                      </p>
+                      
+                      <div class="profile-userbuttons">
+                        <mat-checkbox class="example-margin" formControlName="table4Preg6" [(ngModel)]="table4Preg6"></mat-checkbox>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                </div>
+                <div class="col-md-6">
+                <div class="profile-userbuttons">
+                  <button mat-flat-button color="accent"  type="button" (click)="Next('boolTable1_10')">Atras</button>
+                </div>
+                </div>
+                <div class="col-md-6">
+                <div class="profile-userbuttons">
+                  <button mat-flat-button color="primary"  type="button" (click)="Next('boolTable1_12')">Siguiente</button>
+                </div>
+                </div>
+              </div>
+              <div class="row slideLeft" [hidden]="boolArray[12].prop">
+                <div class="col-md-4">
+                <br>
+                <div class="card border-apply">
+                  <div class="m-b-20">
+                    <div class="contact-grid">
+                      <div class="profile-header bg-indigo">
+                        
+                      </div>
+                      <img src="assets/images/user/organizar-actividades.jpg" class="user-img" alt="">
+                      <p>
+                        Me gusta organizar actividades a mi modo. 
+                      </p>
+                      
+                      <div class="profile-userbuttons">
+                        <mat-checkbox class="example-margin" formControlName="table4Preg7" [(ngModel)]="table4Preg7"></mat-checkbox>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                </div>
+                <div class="col-md-4">
+                <br>
+                <div class="card border-apply">
+                  <div class="m-b-20">
+                    <div class="contact-grid">
+                      <div class="profile-header l-bg-purple-dark">
+                      
+                      </div>
+                      <img src="assets/images/user/confio-en-mi.jpg" class="user-img" alt="">
+                      <p>
+                        Confío mucho en mí mismo.
+                      </p>
+                      
+                      <div class="profile-userbuttons">
+                        <mat-checkbox class="example-margin" formControlName="table4Preg8" [(ngModel)]="table4Preg8"></mat-checkbox>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                </div>
+                <div class="col-md-4">
+                <br>
+                <div class="card border-apply">
+                  <div class="m-b-20">
+                    <div class="contact-grid">
+                      <div class="profile-header bg-cyan">
+                    
+                      </div>
+                      <img src="assets/images/user/propio-negocio.jpg" class="user-img" alt="">
+                      <p>
+                        Prefiero tener mi propio negocio.
+                      </p>
+                      
+                      <div class="profile-userbuttons">
+                        <mat-checkbox class="example-margin" formControlName="table4Preg9" [(ngModel)]="table4Preg9"></mat-checkbox>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                </div>
+                <div class="col-md-6">
+                <div class="profile-userbuttons">
+                  <button mat-flat-button color="accent"  type="button" (click)="Next('boolTable1_11')">Atras</button>
+                </div>
+                </div>
+                <div class="col-md-6">
+                <div class="profile-userbuttons">
+                  <button mat-flat-button color="primary"  type="button" (click)="Next('boolTable1_13')">Siguiente</button>
+                </div>
+                </div>
+              </div>
+            </form>
+             
+              <!-- /*Tabla 5*/ -->
+            <form class="register-form m-4" [formGroup]="formTabla5">
+              <div class="row slideDown" [hidden]="boolArray[13].prop">
+                <div class="col-md-4">
+                  <br>
+                  <div class="card border-apply">
+                    <div class="m-b-20">
+                      <div class="contact-grid">
+                        <div class="profile-header l-bg-purple-dark">
+                          
+                        </div>
+                        <img src="assets/images/user/ayudar-sol-problemas.jpg" class="user-img" alt="">
+                        <p>
+                          Me gusta ayudar a los colegas a solucionar sus problemas.
+                        </p>
+                        
+                        <div class="profile-userbuttons">
+                          <mat-checkbox class="example-margin" formControlName="table5Preg1" [(ngModel)]="table5Preg1"></mat-checkbox>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <br>
+                  <div class="card border-apply">
+                    <div class="m-b-20">
+                      <div class="contact-grid">
+                        <div class="profile-header bg-cyan">
+                        
+                        </div>
+                        <img src="assets/images/user/personas-conversan.jpg" class="user-img" alt="">
+                        <p>
+                          Yo soy quien inicia las conversaciones en las reuniones con colegas.
+                        </p>
+                        
+                        <div class="profile-userbuttons">
+                          <mat-checkbox class="example-margin" formControlName="table5Preg2" [(ngModel)]="table5Preg2"></mat-checkbox>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <br>
+                  <div class="card border-apply">
+                    <div class="m-b-20">
+                      <div class="contact-grid">
+                        <div class="profile-header bg-dark">
+                      
+                        </div>
+                        <img src="assets/images/user/trabajo-publico.jpg" class="user-img" alt="">
+                        <p>
+                          Me gusta el tipo de trabajo que está directamente relacionado con el público.
+                        </p>
+                        
+                        <div class="profile-userbuttons">
+                          <mat-checkbox class="example-margin" formControlName="table5Preg3" [(ngModel)]="table5Preg3"></mat-checkbox>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="profile-userbuttons">
+                    <button mat-flat-button color="accent"  type="button" (click)="Next('boolTable1_12')">Atras</button>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="profile-userbuttons">
+                    <button mat-flat-button color="primary"  type="button" (click)="Next('boolTable1_14')">Siguiente</button>
+                  </div>
+                </div>
+              </div>
+              <div class="row slideUp" [hidden]="boolArray[14].prop">
+                <div class="col-md-4">
+                  <br>
+                  <div class="card border-apply">
+                    <div class="m-b-20">
+                      <div class="contact-grid">
+                        <div class="profile-header l-bg-orange">
+                          
+                        </div>
+                        <img src="assets/images/user/actividad-escolar.jpg" class="user-img" alt="">
+                        <p>
+                          Me gusta participar en las actividades escolares grupales.
+                        </p>
+                        
+                        <div class="profile-userbuttons">
+                          <mat-checkbox class="example-margin" formControlName="table5Preg4" [(ngModel)]="table5Preg4"></mat-checkbox>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <br>
+                  <div class="card border-apply">
+                    <div class="m-b-20">
+                      <div class="contact-grid">
+                        <div class="profile-header bg-green">
+                        
+                        </div>
+                        <img src="assets/images/user/trabajo-en-equipo.jpg" class="user-img" alt="">
+                        <p>
+                          Me gusta trabajar en grupo.
+                        </p>
+                        
+                        <div class="profile-userbuttons">
+                          <mat-checkbox class="example-margin" formControlName="table5Preg5" [(ngModel)]="table5Preg5"></mat-checkbox>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <br>
+                  <div class="card border-apply">
+                    <div class="m-b-20">
+                      <div class="contact-grid">
+                        <div class="profile-header bg-red">
+                      
+                        </div>
+                        <img src="assets/images/user/voluntariado.jpg" class="user-img" alt="">
+                        <p>
+                          Me gusta participar de trabajos voluntarios.
+                        </p>
+                        
+                        <div class="profile-userbuttons">
+                          <mat-checkbox class="example-margin" formControlName="table5Preg6" [(ngModel)]="table5Preg6"></mat-checkbox>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="profile-userbuttons">
+                    <button mat-flat-button color="accent"  type="button" (click)="Next('boolTable1_13')">Atras</button>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="profile-userbuttons">
+                    <button mat-flat-button color="primary"  type="button" (click)="Next('boolTable1_15')">Siguiente</button>
+                  </div>
+                </div>
+              </div>
+              <div class="row slideLeft" [hidden]="boolArray[15].prop">
+                <div class="col-md-4">
+                  <br>
+                  <div class="card border-apply">
+                    <div class="m-b-20">
+                      <div class="contact-grid">
+                        <div class="profile-header bg-indigo">
+                          
+                        </div>
+                        <img src="assets/images/user/ayudar-demas.jpg" class="user-img" alt="">
+                        <p>
+                          Disfruto al ocuparme de los demás.
+                        </p>
+                        
+                        <div class="profile-userbuttons">
+                          <mat-checkbox class="example-margin" formControlName="table5Preg7" [(ngModel)]="table5Preg7"></mat-checkbox>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <br>
+                  <div class="card border-apply">
+                    <div class="m-b-20">
+                      <div class="contact-grid">
+                        <div class="profile-header l-bg-purple-dark">
+                        
+                        </div>
+                        <img src="assets/images/user/situacion-social.jpg" class="user-img" alt="">
+                        <p>
+                          Me gusta el tipo de trabajo que implica mejorar la situación social de las personas. 
+                        </p>
+                        
+                        <div class="profile-userbuttons">
+                          <mat-checkbox class="example-margin" formControlName="table5Preg8" [(ngModel)]="table5Preg8"></mat-checkbox>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <br>
+                  <div class="card border-apply">
+                    <div class="m-b-20">
+                      <div class="contact-grid">
+                        <div class="profile-header bg-cyan">
+                      
+                        </div>
+                        <img src="assets/images/user/educar-formar.jpg" class="user-img" alt="">
+                        <p>
+                          Prefiero el tipo de trabajo que implica educar y formar a los demás. 
+                        </p>
+                        
+                        <div class="profile-userbuttons">
+                          <mat-checkbox class="example-margin" formControlName="table5Preg9" [(ngModel)]="table5Preg9"></mat-checkbox>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="profile-userbuttons">
+                    <button mat-flat-button color="accent"  type="button" (click)="Next('boolTable1_14')">Atras</button>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="profile-userbuttons">
+                    <button mat-flat-button color="primary"  type="button" (click)="Next('boolTable1_16')">Siguiente</button>
+                  </div>
+                </div>
+              </div>
+            </form>
+             
+              <!-- /*Tabla 6*/ -->
+            <form class="register-form m-4" [formGroup]="formTabla6">
+              <div class="row slideDown" [hidden]="boolArray[16].prop">
+                <div class="col-md-4">
+                  <br>
+                  <div class="card border-apply">
+                    <div class="m-b-20">
+                      <div class="contact-grid">
+                        <div class="profile-header l-bg-purple-dark">
+                          
+                        </div>
+                        <img src="assets/images/user/tocando-instrumentos.jpg" class="user-img" alt="">
+                        <p>
+                          Disfruto al tocar un instrumento musical.
+                        </p>
+                        
+                        <div class="profile-userbuttons">
+                          <mat-checkbox class="example-margin" formControlName="table6Preg1" [(ngModel)]="table6Preg1"></mat-checkbox>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <br>
+                  <div class="card border-apply">
+                    <div class="m-b-20">
+                      <div class="contact-grid">
+                        <div class="profile-header bg-cyan">
+                        
+                        </div>
+                        <img src="assets/images/user/escribir-cuentos.jpg" class="user-img" alt="">
+                        <p>
+                          Disfruto al escribir cuentos y artículos.
+                        </p>
+                        
+                        <div class="profile-userbuttons">
+                          <mat-checkbox class="example-margin" formControlName="table6Preg2" [(ngModel)]="table6Preg2"></mat-checkbox>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <br>
+                  <div class="card border-apply">
+                    <div class="m-b-20">
+                      <div class="contact-grid">
+                        <div class="profile-header bg-dark">
+                      
+                        </div>
+                        <img src="assets/images/user/hacer-manualidades.jpg" class="user-img" alt="">
+                        <p>
+                          Disfruto las manualidades.
+                        </p>
+                        
+                        <div class="profile-userbuttons">
+                          <mat-checkbox class="example-margin" formControlName="table6Preg3" [(ngModel)]="table6Preg3"></mat-checkbox>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-md-6">
+                  <div class="profile-userbuttons">
+                    <button mat-flat-button color="accent"  type="button" (click)="Next('boolTable1_15')">Atras</button>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="profile-userbuttons">
+                    <button mat-flat-button color="primary"  type="button" (click)="Next('boolTable1_17')">Siguiente</button>
+                  </div>
+                </div>
+              </div>
+              <div class="row slideUp" [hidden]="boolArray[17].prop">
+                <div class="col-md-4">
+                  <br>
+                  <div class="card border-apply">
+                    <div class="m-b-20">
+                      <div class="contact-grid">
+                        <div class="profile-header l-bg-orange">
+                          
+                        </div>
+                        <img src="assets/images/user/escribir-poesia.jpg" class="user-img" alt="">
+                        <p>
+                          Disfruto al escribir poesía. 
+                        </p>
+                        
+                        <div class="profile-userbuttons">
+                          <mat-checkbox class="example-margin" formControlName="table6Preg4" [(ngModel)]="table6Preg4"></mat-checkbox>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <br>
+                  <div class="card border-apply">
+                    <div class="m-b-20">
+                      <div class="contact-grid">
+                        <div class="profile-header bg-green">
+                        
+                        </div>
+                        <img src="assets/images/user/hombre-pintor.jpg" class="user-img" alt="">
+                        <p>
+                          Disfruto al dibujar personas y paisajes.
+                        </p>
+                        
+                        <div class="profile-userbuttons">
+                          <mat-checkbox class="example-margin" formControlName="table6Preg5" [(ngModel)]="table6Preg5"></mat-checkbox>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <br>
+                  <div class="card border-apply">
+                    <div class="m-b-20">
+                      <div class="contact-grid">
+                        <div class="profile-header bg-red">
+                      
+                        </div>
+                        <img src="assets/images/user/actividad-fotografia.jpg" class="user-img" alt="">
+                        <p>
+                          Me gusta participar en una actividad de fotografía.
+                        </p>
+                        
+                        <div class="profile-userbuttons">
+                          <mat-checkbox class="example-margin" formControlName="table6Preg6" [(ngModel)]="table6Preg6"></mat-checkbox>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="profile-userbuttons">
+                    <button mat-flat-button color="accent"  type="button" (click)="Next('boolTable1_16')">Atras</button>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="profile-userbuttons">
+                    <button mat-flat-button color="primary"  type="button" (click)="Next('boolTable1_18')">Siguiente</button>
+                  </div>
+                </div>
+              </div>
+              <div class="row slideLeft" [hidden]="boolArray[18].prop">
+                <div class="col-md-4">
+                  <br>
+                  <div class="card border-apply">
+                    <div class="m-b-20">
+                      <div class="contact-grid">
+                        <div class="profile-header bg-indigo">
+                          
+                        </div>
+                        <img src="assets/images/user/teatro.jpg" class="user-img" alt="">
+                        <p>
+                          Me gusta el teatro.
+                        </p>
+                        
+                        <div class="profile-userbuttons">
+                          <mat-checkbox class="example-margin" formControlName="table6Preg7" [(ngModel)]="table6Preg7"></mat-checkbox>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <br>
+                  <div class="card border-apply">
+                    <div class="m-b-20">
+                      <div class="contact-grid">
+                        <div class="profile-header l-bg-purple-dark">
+                        
+                        </div>
+                        <img src="assets/images/user/radio-escolares.jpg" class="user-img" alt="">
+                        <p>
+                          Me gusta participar en las actividades de radio escolares.
+                        </p>
+                        
+                        <div class="profile-userbuttons">
+                          <mat-checkbox class="example-margin" formControlName="table6Preg8" [(ngModel)]="table6Preg8"></mat-checkbox>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <br>
+                  <div class="card border-apply">
+                    <div class="m-b-20">
+                      <div class="contact-grid">
+                        <div class="profile-header bg-cyan">
+                      
+                        </div>
+                        <img src="assets/images/user/moda.jpg" class="user-img" alt="">
+                        <p>
+                          Me gusta el diseño de modas y la decoración.
+                        </p>
+                        
+                        <div class="profile-userbuttons">
+                          <mat-checkbox class="example-margin" formControlName="table6Preg9" [(ngModel)]="table6Preg9"></mat-checkbox>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+               
+              </div>
+            </form>
+            <div class="row slideLeft" [hidden]="boolArray[18].prop">
+              <div class="col-md-6">
+                <div class="profile-userbuttons">
+                  <button mat-flat-button color="accent"  type="button" (click)="Next('boolTable1_17')">Atras</button>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="profile-userbuttons">
+                  <button mat-flat-button color="warn" type="submit">Finalizar test</button>
+                </div>
+              </div>
+            </div>
+           
+          </form>
+         
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

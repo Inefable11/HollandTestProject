@@ -1,0 +1,46 @@
+<div class="addContainer">
+    <div class="modalHeader">
+        <div class="editRowModal">
+            <div class="font-weight-bold p-t-5 font-17">
+                <h2> {{data.test.name}} </h2>
+               
+            </div>            
+        </div>
+    </div>
+    <div mat-dialog-content>
+        <div class="row">
+            <div class="card">
+                <div class="header">
+                    <h2>Resultado del test, realizado en {{data.chart.timeElapsed}} min.</h2>
+                </div>
+                <div class="body">
+                    <apx-chart [series]="barChartOptions.series" [chart]="barChartOptions.chart"
+                      [dataLabels]="barChartOptions.dataLabels" [plotOptions]="barChartOptions.plotOptions"
+                      [yaxis]="barChartOptions.yaxis" [xaxis]="barChartOptions.xaxis" [fill]="barChartOptions.fill"></apx-chart>
+                  </div>                  
+            </div>
+        </div>
+        
+    </div>
+    <div class="font-weight-bold p-t-5 font-17">
+        <h4>Personalidad: {{data.chart.personality}}</h4>
+      </div>
+      
+        <h4>Descripción:</h4>
+        <div style="text-align: justify;">{{data.chart.personalityDescription}}</div>
+      
+      <!-- <div class="font-weight-bold p-t-5 font-17">
+        <h4>Vocaciones:</h4>
+        <p>{{data.chart.personalityVocations}}</p>
+      </div> -->
+      <div class="card" >
+        <h4>Vocaciones:</h4>
+        <div class="columns">
+          <a style="cursor: pointer;" *ngFor=" let voc of vocacionesList" >
+            <a (click)="showVoc(voc)" >
+              {{voc}} ,
+            </a>
+            
+          </a>
+        </div>
+</div>

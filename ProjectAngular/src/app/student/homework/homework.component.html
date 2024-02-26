@@ -1,0 +1,170 @@
+<section class="content">
+  <div class="container-fluid">
+    <div class="block-header">
+      <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+          <ul class="breadcrumb breadcrumb-style ">
+            <li class="breadcrumb-item">
+              <h4 class="page-title">Carreras e Instituciones</h4>
+            </li>
+            <li class="breadcrumb-item bcrumb-1">
+              <a routerLink="/patient/dashboard">
+                <i class="fas fa-home"></i> Inicio</a>
+            </li>
+            <li class="breadcrumb-item active">Carreras e Instituciones</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <!-- <div class="row"> 
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="responsive_table">
+          <div class="materialTableHeader">
+            <div class="row">
+              <div class="col-8">
+                <ul class="header-buttons-left ml-0">
+                  <li class="dropdown">
+                    <label for="search-input"><i class="material-icons search-icon">search</i></label>
+                    <input (keyup)="applyFilter($event)" type="text" class="browser-default search-field"
+                      placeholder="Buscar">
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="example-container mat-elevation-z8">
+
+            <mat-table #table [dataSource]="dataSource" matSort class="mat-cell">
+              
+              <ng-container matColumnDef="id">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> ID </mat-header-cell>
+                <mat-cell *matCellDef="let row"> {{row.id}} </mat-cell>
+              </ng-container>
+
+              
+              <ng-container matColumnDef="class">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> Class </mat-header-cell>
+                <mat-cell *matCellDef="let row"> {{row.class}} </mat-cell>
+              </ng-container>
+
+             
+              <ng-container matColumnDef="section">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> Section </mat-header-cell>
+                <mat-cell *matCellDef="let row"> {{row.section}} </mat-cell>
+              </ng-container>
+
+              
+              <ng-container matColumnDef="subject">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> Subject </mat-header-cell>
+                <mat-cell *matCellDef="let row"> {{row.subject}} </mat-cell>
+              </ng-container>
+
+              
+              <ng-container matColumnDef="homeworkDate">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>Homework Date</mat-header-cell>
+                <mat-cell *matCellDef="let row"> {{row.homeworkDate | date: 'MM/dd/yyyy' }}
+                </mat-cell>
+              </ng-container>
+
+              
+              <ng-container matColumnDef="submissionDate">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>Submission Date</mat-header-cell>
+                <mat-cell *matCellDef="let row"> {{row.submissionDate | date: 'MM/dd/yyyy' }}
+                </mat-cell>
+              </ng-container>
+
+              
+              <ng-container matColumnDef="evalutionDate">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>Evalution Date</mat-header-cell>
+                <mat-cell *matCellDef="let row"> {{row.evalutionDate | date: 'MM/dd/yyyy' }}
+                </mat-cell>
+              </ng-container>
+
+              
+              <ng-container matColumnDef="status">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> Status </mat-header-cell>
+                <mat-cell *matCellDef="let row"> {{row.status}} </mat-cell>
+              </ng-container>
+               
+              <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+              <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row> 
+              <mat-row *matRowDef="let row; columns: displayedColumns;" [style.cursor]="'pointer'" matRipple>
+              </mat-row>
+            </mat-table>
+            <div class="no-results" [style.display]="dataLength == 0 ? '' : 'none'">
+              No results
+            </div>
+
+            <mat-paginator #paginator [length]="dataLength" [pageIndex]="0" [pageSize]="10"
+              [pageSizeOptions]="[5, 10, 25, 100]">
+            </mat-paginator>
+          </div>
+        </div>
+      </div>
+    </div>-->
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="header">
+            <h1>Carreras</h1>
+          </div>
+          <div class="body">
+            <div class="row">
+              <div class="col-md-3" *ngFor="let carrera of carrerasList">
+                <div class="course-card">
+                  <div class="course-card-body"  >
+                    <br>
+                    <div class="post-user mt-3">
+                      <span class="float-start msr-3">
+                        <img class="img-circle" [src]="urlFoto+carrera.img" alt="...">
+                      </span>
+                      <h6 class="name"> {{carrera.name}} </h6>                      
+                    </div>                    
+                    <p>{{carrera.jobProfile}}</p>
+                    <div class="text-center mb-3">
+                      <button mat-raised-button color="primary" (click)="showDetail(carrera)">Detalle de la carrera</button>
+                    </div>
+                  </div>  
+                  <br>                
+                </div>                
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="header">
+            <h1>Instituciones</h1>
+          </div>
+          <div class="body">
+            <div class="row">
+              <div class="col-md-3" *ngFor="let instituciones of institucionesList">
+                <div class="course-card">
+                  <div class="course-card-body"  >
+                    <br>
+                    <div class="post-user mt-3">
+                      <span class="float-start msr-3">
+                        <img class="img-circle" [src]="urlFoto+instituciones.img" alt="...">
+                      </span>
+                      <h6 class="name"> {{instituciones.name}} </h6>
+                      <!-- <p class="text-muted"><time></time></p> -->
+                    </div>
+                    <h6 class="name" style="text-align: justify;">Carreras: {{instituciones.studyCareers}}</h6>
+                    <p>{{instituciones.description}}</p>
+                    <div class="text-center mb-3">
+                      <button mat-raised-button color="primary" (click)="showDetailIns(instituciones)">Detalle de la Institución</button>
+                    </div>
+                  </div>  
+                  <br>                
+                </div>                
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

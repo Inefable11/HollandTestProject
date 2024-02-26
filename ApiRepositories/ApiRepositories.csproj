@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="TipoFacultad\**" />
+    <EmbeddedResource Remove="TipoFacultad\**" />
+    <EntityDeploy Remove="TipoFacultad\**" />
+    <None Remove="TipoFacultad\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ApiModel\ApiModel.csproj" />
+  </ItemGroup>
+
+</Project>

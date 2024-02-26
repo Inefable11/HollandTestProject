@@ -1,0 +1,180 @@
+<section class="content">
+  <div class="container-fluid">
+    <div class="block-header">
+      <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+          <ul class="breadcrumb breadcrumb-style ">
+            <li class="breadcrumb-item">
+              <h4 class="page-title">Agregar Tutor</h4>
+            </li>
+            <li class="breadcrumb-item bcrumb-1">
+              <a routerLink="/admin/dashboard/main">
+                <i class="fas fa-home"></i> Inicio</a>
+            </li>
+            <li class="breadcrumb-item bcrumb-2">
+              <a href="#" onClick="return false;">Tutores</a>
+            </li>
+            <li class="breadcrumb-item active">Agregar</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="row clearfix">
+      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+        <div class="card">
+          <div class="header">
+            <h2>Agregar Tutor</h2>
+
+          </div>
+          <div class="body">
+            <form class="m-4" [formGroup]="proForm" (ngSubmit)="onSubmit()">
+              <div class="row">
+                <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-2">
+                  <mat-form-field class="example-full-width mb-3" appearance="outline">
+                    <mat-label>Nombres</mat-label>
+                    <input matInput formControlName="first">
+                    <mat-error *ngIf="proForm.get('first').hasError('required') && (proForm.get('first').dirty || proForm.get('first').touched)">
+                      Su nombre es requerido
+                    </mat-error>
+                  </mat-form-field>
+                </div>
+                <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-2">
+                  <mat-form-field class="example-full-width mb-3" appearance="outline">
+                    <mat-label>Apellidos</mat-label>
+                    <input matInput formControlName="last">
+                  </mat-form-field>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-2">
+                  <mat-form-field class="example-full-width mb-3" appearance="outline">
+                    <mat-label>Género</mat-label>
+                    <mat-select formControlName="gender" required>
+                      <mat-option *ngFor="let gen of generos" [value]="gen.code">
+                        {{gen.value_1}}
+                      </mat-option>                      
+                    </mat-select>
+                    <mat-error *ngIf="proForm.get('gender').hasError('required')">
+                      Género es reuqeido
+                    </mat-error>
+                  </mat-form-field>
+                </div>
+                <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-2">
+                  <mat-form-field class="example-full-width mb-3" appearance="outline">
+                    <mat-label>Teléfono</mat-label>
+                    <input matInput formControlName="mobile" type="number" required>
+                  </mat-form-field>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-2">
+                  <mat-form-field class="example-full-width mb-3" appearance="outline">
+                    <mat-label>Password</mat-label>
+                    <input matInput formControlName="password" (blur)="verifyPassword()"
+                    [type]="_typePass" required><mat-icon matSuffix (click)="typePass()">{{_typePass == 'password'?'visibility_off':'remove_red_eye'}}</mat-icon>
+                    <mat-error *ngIf="proForm.get('password').hasError('required')">
+                      Su Password es requerido
+                    </mat-error>
+                  </mat-form-field>
+                </div>
+                <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-2">
+                  <mat-form-field class="example-full-width mb-3" appearance="outline">
+                    <mat-label>Repetir Password</mat-label>
+                    <input matInput formControlName="conformPassword"  (blur)="verifyPassword()"
+                    [type]="_typePassConfirm"
+                    required><mat-icon matSuffix (click)="typePassConfirm()">{{_typePassConfirm == 'password'?'visibility_off':'remove_red_eye'}}</mat-icon>
+                    <mat-error *ngIf="proForm.get('conformPassword').hasError('required')">
+                      Repetir su password es requerido o no coincide
+                    </mat-error>                    
+                  </mat-form-field>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-2">
+                  <mat-form-field class="example-full-width mb-3" appearance="outline">
+                    <mat-label>Grado</mat-label>
+                    <input matInput formControlName="degree">
+                  </mat-form-field>
+                </div>
+                <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-2">
+                  <mat-form-field class="example-full-width mb-3" appearance="outline">
+                    <mat-label>Seleccione Departmento</mat-label>
+                    <mat-select formControlName="department" required>
+                      <mat-option *ngFor="let dep of departamentos" [value]="dep.code">
+                        {{dep.value_1}}
+                      </mat-option>                     
+                    </mat-select>
+                    <mat-error *ngIf="proForm.get('department').hasError('required')">
+                      Seleccione un Departmento
+                    </mat-error>
+                  </mat-form-field>
+                </div>
+              </div>
+              <!-- <div class="row">
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-2">
+                  <mat-form-field class="example-full-width mb-3" appearance="outline">
+                    <mat-label>Dirección</mat-label>
+                    <textarea matInput formControlName="address"></textarea>
+                  </mat-form-field>
+                </div>
+              </div> -->
+              <div class="row">
+                <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-2">
+                  <mat-form-field class="example-full-width mb-3" appearance="outline">
+                    <mat-label>Email</mat-label>
+                    <input matInput formControlName="email" required (blur)="validaEmail(proForm.value.email)">
+                    <mat-error *ngIf="proForm.get('email').hasError('email') && proForm.get('email').touched">
+                      Ingrese un email válido
+                    </mat-error>
+                    <!-- <mat-error *ngIf="boolEmail">
+                      Este email ya existe elija otro
+                    </mat-error> -->
+                  </mat-form-field>
+                </div>
+                <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-2">
+                  <mat-form-field class="example-full-width mb-3" appearance="outline">
+                    <mat-label>Fecha de inicio Laboral</mat-label>
+                    <input matInput [matDatepicker]="picker" formControlName="dob" required>
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                    <mat-error *ngIf="proForm.get('dob').hasError('required')">
+                      Seleccione una fecha
+                    </mat-error>
+                  </mat-form-field>
+                </div>
+              </div>
+              <!-- <div class="row">
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-2">
+                  <mat-form-field class="example-full-width mb-3" appearance="outline">
+                    <mat-label>Educación</mat-label>
+                    <textarea matInput formControlName="education"></textarea>
+                  </mat-form-field>
+                </div>
+              </div> -->
+              <div class="row">
+                <mat-label>Elegir Foto</mat-label>
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-2">
+                  
+                  <!-- <mat-form-field class="example-full-width mb-3" appearance="outline"> -->
+                    <!-- <mat-label>Cargar Foto</mat-label> -->
+                    <input  type="file" (change)="readUrl($event)"  formControlName="uploadImg"/>
+                    <!-- <mat-icon matSuffix>face</mat-icon> -->
+                  <!-- </mat-form-field> -->
+                 
+                </div>
+              </div>
+              <br>
+              <div class="row">
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-2">
+                  <button type="submit" class="btn-space" [disabled]="!proForm.valid " mat-raised-button
+                    color="primary">Grabar</button>
+                  <button type="button" mat-button>Cancelar</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
